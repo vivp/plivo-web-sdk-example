@@ -80,11 +80,21 @@
 			
 			function onIncomingCall(display_name, user_name, account) {
 				console.log("onIncomingCall:"+user_name + "("+display_name+")")
+                $('#txtStatus').text("Incoming call from "+user_name+".....");
 				ringtone.play();
                 $('#call_box').hide('slow');
 				$('#incoming_callbox').show('slow');
 			}
 			
+            function onIncomingCallCanceled() {
+                console.log("onIncomingCallCanceled");
+                $('#txtStatus').text("Incoming call canceled");
+                $('#call_box').show('slow');
+                $('#incoming_callbox').hide('slow');
+                $('#linkHangup').hide();
+                ringbacktone.pause();
+                ringtone.pause();   
+            }
             function webrtcNotSupportedAlert() {
                 $('#txtStatus').text("");
                 alert("Your browser doesn't support webrtc. You need latest stable chrome to use webrtc");
@@ -101,6 +111,7 @@
 				Plivo.onCallAnswered = onCallAnswered;
 				Plivo.onCallTerminated = onCallTerminated;
 				Plivo.onIncomingCall = onIncomingCall;
+                Plivo.onIncomingCallCanceled = onIncomingCallCanceled;
                 config = {
                     'fallback_to_flash': true
                 };
