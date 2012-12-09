@@ -4,7 +4,6 @@
         <link href="/static/css/bootstrap.css" rel="stylesheet">
         <script language="javascript" content-type="text/javascript" src="./jquery.js"></script>
         <script type="text/javascript" src="./plivo.min.js"></script>
-        
 	<script>
 		var call_state;
 		function resetPanel() {
@@ -78,12 +77,17 @@
 				console.log("onEvent:"+evt);
 			}
 			
-			function onIncomingCall(display_name, user_name, account) {
+			function onIncomingCall(display_name, user_name, account, extraHeaders) {
 				console.log("onIncomingCall:"+user_name + "("+display_name+")")
                 $('#txtStatus').text("Incoming call from "+user_name+".....");
 				ringtone.play();
                 $('#call_box').hide('slow');
 				$('#incoming_callbox').show('slow');
+                
+                console.log("extraHeaders=");
+                for (var key in extraHeaders) {
+                    console.log("key="+key+".val="+extraHeaders[key]);
+                }
 			}
 			
             function onIncomingCallCanceled() {
@@ -127,10 +131,8 @@
             function call() {
                 call_state="startCall";
                 extraHeaders = []
-                extraHeaders.push('X-PH-header1: ban&dung');
-                extraHeaders.push('X-PH-header2: ja%karta');
-                extraHeaders.push('X-P-header3: ja%karta');
-                extraHeaders.push('X-PH-header4: ja karta');
+                extraHeaders.push('X-PH-header1: bandung');
+                extraHeaders.push('X-PH-header2: jakarta');
                 Plivo.conn.call($('#number').val(), extraHeaders);
             }
 			
@@ -171,9 +173,9 @@
         </script>
     
 	   <style type="text/css">
-       #livo_flash_placeholder {
-            width: 220;
-            height: 150;
+       #plivooo_flash_placeholder {
+            width: 220px;
+            height: 150px;
         }
 	   </style>
     </head>
