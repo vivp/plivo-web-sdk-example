@@ -148,13 +148,28 @@
         callUI()
     }
 
+    function onCallNoAnswer() {
+        $('#status_txt').text('Call Not Answered');
+        console.log("onCallNoAnswer");
+        callUI();
+    }
+
+    function onCallRejected() {
+        $('#status_txt').text("Call Rejected");
+        console.log("onCallRejected");
+        callUI();
+    }
+
     function call() {
               if ($('#make_call').text() == "Call") {
                 var dest = $("#to").val();
                 if (isNotEmpty(dest)) {
                   $('#status_txt').text('Calling..');
                   //dest = formatUSNumber(dest);
-                  Plivo.conn.call(dest);
+                  extraHeaders = []
+                  extraHeaders.push('X-PH-header1: bandung');
+                  extraHeaders.push('X-PH-header2: jakarta');
+                  Plivo.conn.call(dest, extraHeaders);
                   $('#make_call').text('End');
                 }
                 else{
@@ -202,8 +217,12 @@
         $('#linkMute').show('slow');
       }
 
-      function onIncomingCall(display_name, user_name, account) {
+      function onIncomingCall(display_name, user_name, extraHeaders) {
         console.log("onIncomingCall:"+user_name + "("+display_name+")")
+        console.log("extraHeaders=");
+        for (var key in extraHeaders) {
+          console.log("key="+key+".val="+extraHeaders[key]);
+        }
         IncomingCallUI()
       }
 
@@ -235,6 +254,8 @@
         Plivo.onCallTerminated = onCallTerminated;
         Plivo.onIncomingCall = onIncomingCall;
         Plivo.onIncomingCallCancelled = onIncomingCallCancelled;
+        Plivo.onCallNoAnswer = onCallNoAnswer;
+        Plivo.onCallRejected = onCallRejected;
         config = {
         };
         Plivo.init(config);
