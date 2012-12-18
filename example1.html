@@ -28,7 +28,7 @@
     </style>
 
     <script language="javascript" content-type="text/javascript" src="./jquery.js"></script>
-<script type="text/javascript" src="./plivo.min.js"></script>
+<script type="text/javascript" src="./plivo.js"></script>
 
     <script type="text/javascript">
 
@@ -140,23 +140,25 @@
 
     function onCallAnswered() {
         console.log('onCallAnswered');
-        callAnsweredUI()
+        callAnsweredUI();
     }
 
     function onCallTerminated() {
         console.log("onCallTerminated");
-        callUI()
+        callUI();
     }
 
     function onCallNoAnswer() {
         $('#status_txt').text('Call Not Answered');
         console.log("onCallNoAnswer");
+        ringbacktone.pause();
         callUI();
     }
 
     function onCallRejected() {
         $('#status_txt').text("Call Rejected");
         console.log("onCallRejected");
+        ringbacktone.pause();
         callUI();
     }
 
