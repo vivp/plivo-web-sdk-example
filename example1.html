@@ -148,16 +148,9 @@
         callUI();
     }
 
-    function onCallNoAnswer() {
-        $('#status_txt').text('Call Not Answered');
-        console.log("onCallNoAnswer");
-        ringbacktone.pause();
-        callUI();
-    }
-
-    function onCallRejected() {
-        $('#status_txt').text("Call Rejected");
-        console.log("onCallRejected");
+    function onCallFailed(cause) {
+        $('#status_txt').text("Call Failed:"+cause);
+        console.log("onCallFailed:"+cause);
         ringbacktone.pause();
         callUI();
     }
@@ -256,8 +249,7 @@
         Plivo.onCallTerminated = onCallTerminated;
         Plivo.onIncomingCall = onIncomingCall;
         Plivo.onIncomingCallCancelled = onIncomingCallCancelled;
-        Plivo.onCallNoAnswer = onCallNoAnswer;
-        Plivo.onCallRejected = onCallRejected;
+        Plivo.onCallFailed = onCallFailed;
         config = {
         };
         Plivo.init(config);
