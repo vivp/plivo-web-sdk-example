@@ -31,7 +31,7 @@ Registering
 The UI starts off with a basic login screen for accepting your Plivo Endpoint Credentials. To use the entered values to log in, use the following code
 ::
     function login() {
-        Plivo.conn.login($("#username").val(), $("#password").val());
+            Plivo.conn.login($("#username").val(), $("#password").val());
     }
 
 The onLogin listener function, which was registered at the start is then invoked when Plivo sends back the onLogin event
@@ -59,33 +59,45 @@ Enter the number or sip uri in the post login UI and click the call button. This
     }    
 The code after discarding validations and UI state changes boils down to one line.
 ::
-    Plivo.conn.call(dest);
+            Plivo.conn.call(dest);
 
 Handling Incoming calls
 -----------------------
 By creating the onIncomingCall listener, the Plivo JS object can handle calls coming into the Plivo Endpoint. 
 ::
     function onIncomingCall(display_name, user_name, extraHeaders) {
-          console.log("onIncomingCall:"+user_name + "("+display_name+")")
-          console.log("extraHeaders=");
-          for (var key in extraHeaders) {
-              console.log("key="+key+".val="+extraHeaders[key]);
-          }
-          IncomingCallUI();
+            console.log("onIncomingCall:"+user_name + "("+display_name+")")
+            console.log("extraHeaders=");
+            for (var key in extraHeaders) {
+                console.log("key="+key+".val="+extraHeaders[key]);
+            }
+            IncomingCallUI();
       }
 
 The UI which shows an incoming call is rendered with the above code. The two actions that can be performed now are answer or reject. The code for answering looks like this.
 ::
     function answer() {
-          console.log("answering")
-          $('#status_txt').text('Answering....');
-          Plivo.conn.answer();
-          callAnsweredUI()
+            console.log("answering")
+            $('#status_txt').text('Answering....');
+            Plivo.conn.answer();
+            callAnsweredUI()
     }
 
 The reject code looks like this
 ::
     function reject() {
-        callUI()
-        Plivo.conn.reject();
+            callUI()
+            Plivo.conn.reject();
+    }
+
+Terminating a call
+------------------
+This code may be used to terminate a call. 
+::
+    else if($('#make_call').text() == "End") {
+            $('#status_txt').text('Ending..');
+            Plivo.conn.hangup();
+            ringbacktone.pause();
+            $('#make_call').text('Call');
+            $('#status_txt').text('Ready');
     }
