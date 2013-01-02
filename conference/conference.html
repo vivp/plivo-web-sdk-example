@@ -103,12 +103,10 @@
          $('#allownotice').hide();
         console.log("onCalling");
         $('#status_txt').text('Connecting....');
-        ringbacktone.play();
     }
 
     function onCallRemoteRinging() {
         $('#status_txt').text('Ringing..');
-        ringbacktone.pause();
     }
 
     function onCallAnswered() {
@@ -131,7 +129,6 @@
               else if($('#make_call').text() == "End") {
                   $('#status_txt').text('Ending..');
                   Plivo.conn.hangup();
-                  ringbacktone.pause();
                   $('#make_call').text('Conference');
                   $('#status_txt').text('Ready');
               }
@@ -145,7 +142,6 @@
 
       function dtmf(digit) {
           Plivo.conn.send_dtmf(digit);
-          dtmf1.play();
       }
       function dialpadShow() {
           $('#btn-container').show();
@@ -211,41 +207,24 @@
                 <a href="#" id="linkMute" class="badge badge-warning" onclick="mute();">Mute</a>
                 <a href="#" id="linkUnmute" class="badge badge-warning" onclick="unmute();" style="display: none">Unmute</a><br>
 
-                <a class="btn btn-info" href="#" onclick="dtmf(&#39;1&#39;);">1</a>
-                <a class="btn btn-info" href="#" onclick="dtmf(&#39;2&#39;);">2</a>
-                <a class="btn btn-info" href="#" onclick="dtmf(&#39;3&#39;);">3</a><br>
+                <a class="btn btn-info" href="#" onclick="dtmf('1');">1</a>
+                <a class="btn btn-info" href="#" onclick="dtmf('2');">2</a>
+                <a class="btn btn-info" href="#" onclick="dtmf('3');">3</a><br>
 
-                <a class="btn btn-info" href="#" onclick="dtmf(&#39;4&#39;);">4</a>
-                <a class="btn btn-info" href="#" onclick="dtmf(&#39;5&#39;);">5</a>
-                <a class="btn btn-info" href="#" onclick="dtmf(&#39;6&#39;);">6</a><br>
+                <a class="btn btn-info" href="#" onclick="dtmf('4');">4</a>
+                <a class="btn btn-info" href="#" onclick="dtmf('5');">5</a>
+                <a class="btn btn-info" href="#" onclick="dtmf('6');">6</a><br>
 
-                <a class="btn btn-info" href="#" onclick="dtmf(&#39;7&#39;);">7</a>
-                <a class="btn btn-info" href="#" onclick="dtmf(&#39;8&#39;);">8</a>
-                <a class="btn btn-info" href="#" onclick="dtmf(&#39;9&#39;);">9</a><br>
+                <a class="btn btn-info" href="#" onclick="dtmf('7');">7</a>
+                <a class="btn btn-info" href="#" onclick="dtmf('8');">8</a>
+                <a class="btn btn-info" href="#" onclick="dtmf('9');">9</a><br>
 
-                <a class="btn btn-info" href="#" onclick="dtmf(&#39;*&#39;);">*</a>
-                <a class="btn btn-info" href="#" onclick="dtmf(&#39;0&#39;);">0</a>
-                <a class="btn btn-info" href="#" onclick="dtmf(&#39;#&#39;);"> #</a><br>
+                <a class="btn btn-info" href="#" onclick="dtmf('*');">*</a>
+                <a class="btn btn-info" href="#" onclick="dtmf('0');">0</a>
+                <a class="btn btn-info" href="#" onclick="dtmf('#');"> #</a><br>
              </div>
-
-          <audio id="ringbacktone" loop="" src="https://s3.amazonaws.com/plivoweb-sdk/audio/ringbacktone.wav">
-          <audio id="incomingring" loop="" src="https://s3.amazonaws.com/plivoweb-sdk/audio/incoming.mp3">
-
-          <audio id="dtmf1" src="https://s3.amazonaws.com/plivoweb-sdk/audio/dtmf-1.mp3">
-          <audio id="dtmf2" src="https://s3.amazonaws.com/plivoweb-sdk/audio/dtmf-2.mp3">
-          <audio id="dtmf3" src="https://s3.amazonaws.com/plivoweb-sdk/audio/dtmf-3.mp3">
-          <audio id="dtmf4" src="https://s3.amazonaws.com/plivoweb-sdk/audio/dtmf-4.mp3">
-          <audio id="dtmf5" src="https://s3.amazonaws.com/plivoweb-sdk/audio/dtmf-5.mp3">
-          <audio id="dtmf6" src="https://s3.amazonaws.com/plivoweb-sdk/audio/dtmf-6.mp3">
-          <audio id="dtmf7" src="https://s3.amazonaws.com/plivoweb-sdk/audio/dtmf-7.mp3">
-          <audio id="dtmf8" src="https://s3.amazonaws.com/plivoweb-sdk/audio/dtmf-8.mp3">
-          <audio id="dtmf9" src="https://s3.amazonaws.com/plivoweb-sdk/audio/dtmf-9.mp3">
-          <audio id="dtmf0" src="https://s3.amazonaws.com/plivoweb-sdk/audio/dtmf-0.mp3">
-          <audio id="dtmfstar" src="https://s3.amazonaws.com/plivoweb-sdk/audio/dtmf-star.mp3">
-          <audio id="dtmfpound" src="https://s3.amazonaws.com/plivoweb-sdk/audio/dtmf-pound.mp3">
-
-        </audio></audio></audio></audio></audio></audio></audio></audio></audio></audio></audio></audio></audio></div>
-
+          
+          </div>
       </div>
 
       <hr>
