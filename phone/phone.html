@@ -160,7 +160,7 @@
                 var dest = $("#to").val();
                 if (isNotEmpty(dest)) {
                   $('#status_txt').text('Calling..');
-                  //dest = formatUSNumber(dest);
+
                   Plivo.conn.call(dest);
                   $('#make_call').text('End');
                 }
@@ -255,8 +255,8 @@
         Plivo.onCallTerminated = onCallTerminated;
         Plivo.onCallFailed = onCallFailed;
         Plivo.onMediaPermission = onMediaPermission;
-	Plivo.onIncomingCall = onIncomingCall;
-	Plivo.onIncomingCallCancelled = onIncomingCallCancelled;
+        Plivo.onIncomingCall = onIncomingCall;
+        Plivo.onIncomingCallCancelled = onIncomingCallCancelled;
 
         Plivo.init();
 
