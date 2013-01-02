@@ -97,7 +97,6 @@ This code may be used to terminate a call.
     else if($('#make_call').text() == "End") {
             $('#status_txt').text('Ending..');
             Plivo.conn.hangup();
-            ringbacktone.pause();
             $('#make_call').text('Call');
             $('#status_txt').text('Ready');
     }
