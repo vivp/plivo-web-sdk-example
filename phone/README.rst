@@ -65,8 +65,8 @@ Handling Incoming calls
 -----------------------
 By creating the onIncomingCall listener, the Plivo JS object can handle calls coming into the Plivo Endpoint. 
 ::
-    function onIncomingCall(display_name, user_name, extraHeaders) {
-            console.log("onIncomingCall:"+user_name + "("+display_name+")")
+    function onIncomingCall(account_name, extraHeaders) {
+            console.log("onIncomingCall:"+account_name);
             console.log("extraHeaders=");
             for (var key in extraHeaders) {
                 console.log("key="+key+".val="+extraHeaders[key]);
