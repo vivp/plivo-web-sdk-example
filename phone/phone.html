@@ -246,8 +246,10 @@
         Plivo.onMediaPermission = onMediaPermission;
         Plivo.onIncomingCall = onIncomingCall;
         Plivo.onIncomingCallCanceled = onIncomingCallCanceled;
-
-        Plivo.init();
+        config = {
+          'fallback_to_flash':true
+        };
+        Plivo.init(config);
 
     });
 
