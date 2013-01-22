@@ -11,6 +11,7 @@ There is a [live web phone demo](https://s3.amazonaws.com/plivoweb-sdk/phone.htm
 
 ### Where it all begins
 In the document's ready function is where the Plivo JS Objects is initialised
+
     $(document).ready(function() {
             Plivo.onWebrtcNotSupported = webrtcNotSupportedAlert;
             Plivo.onReady = onReady;
