@@ -25,7 +25,7 @@ In the document's ready function is where the Plivo JS Objects is initialised
             Plivo.onCallFailed = onCallFailed;
             Plivo.onMediaPermission = onMediaPermission;
             Plivo.onIncomingCall = onIncomingCall;
-            Plivo.onIncomingCallCancelled = onIncomingCallCancelled;
+            Plivo.onIncomingCallCanceled = onIncomingCallCanceled;
             
             Plivo.init();
 
