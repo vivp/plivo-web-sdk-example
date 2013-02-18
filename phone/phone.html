@@ -142,9 +142,9 @@
                 }
 
                 function onCallFailed(cause) {
-                    $('#status_txt').text("Call Failed:"+cause);
                     console.log("onCallFailed:"+cause);
                     callUI();
+                    $('#status_txt').text("Call Failed:"+cause);
                 }
 
                 function call() {
