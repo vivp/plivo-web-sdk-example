@@ -86,7 +86,6 @@
                 }
 
                 function callAnsweredUI() {
-                    $('#status_txt').text('Call Answered....');
                     $('#incoming_callbox').hide('slow');
                     $('#callcontainer').hide('slow');
                     dialpadShow();
@@ -133,12 +132,13 @@
 
                 function onCallAnswered() {
                     console.log('onCallAnswered');
-                    callAnsweredUI()
+                    callAnsweredUI();
+                    $('#status_txt').text('Call Answered');
                 }
 
                 function onCallTerminated() {
                     console.log("onCallTerminated");
-                    callUI()
+                    callUI();
                 }
 
                 function onCallFailed(cause) {
