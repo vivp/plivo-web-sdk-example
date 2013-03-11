@@ -46,13 +46,13 @@
 
         <script language="javascript" content-type="text/javascript" src="./assets/jquery.js"></script>
         <script src="./assets/bootstrap-popover.js"></script>
-        <script type="text/javascript" src="http://sdk.plivo.com/web/plivo.min.js"/>
+        <script type="text/javascript" src="http://s3.amazonaws.com/plivosdk/web/plivo.min.js"/>
 
             <script type="text/javascript">
 
                 function webrtcNotSupportedAlert() {
                     $('#txtStatus').text("");
-                    alert("Your browser doesn't support webrtc. You need Chrome 23 to use this demo");
+                    alert("Your browser doesn't support WebRTC. You need Chrome 25 to use this demo");
                 }
 
                 function getURLParameter(name) {
