@@ -7,7 +7,7 @@ Web-Phone Example
 -----------------
 
 This is a very simple demo showing how you can make phone calls from the web browser to both sip addresses and PSTN phone numbers
-There is a [live web phone demo](https://s3.amazonaws.com/plivoweb-sdk/phone.html) The entire source code is available in phone/phone.html.
+There is a [live web phone demo](http://s3.amazonaws.com/plivowebrtc/phone.html) The entire source code is available in phone/phone.html.
 
 ### Where it all begins
 In the document's ready function is where the Plivo JS Objects is initialised
