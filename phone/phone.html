@@ -81,13 +81,13 @@
                 function IncomingCallUI() {
                     //show incoming call UI
                     $('#status_txt').text('Incoming Call');
-                    $('#callcontainer').hide('slow');
+                    $('#callcontainer').hide();
                     $('#incoming_callbox').show('slow');
                 }
 
                 function callAnsweredUI() {
                     $('#incoming_callbox').hide('slow');
-                    $('#callcontainer').hide('slow');
+                    $('#callcontainer').hide();
                     dialpadShow();
                 }
 
