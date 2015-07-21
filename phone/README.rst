@@ -2,6 +2,11 @@ Web Phone Demo
 ==============
 This is a very simple demo showing how you can make phone calls from the web browser to both sip addresses and PSTN phone numbers
 
+Getting Started
+==============
+
+Please refer to our [Getting Started](https://www.plivo.com/docs/getting-started/web-sdk/quick-start/) doc on how to create Plivo Endpoints and start making calls using the Web SDK.
+
 
 Where it all begins
 -------------------
